@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
+import Header from './Header'
 // import { useLocation } from 'react-router-dom'
 
 function Api() {
@@ -19,10 +20,10 @@ useEffect(()=>{
      setData(data)
      console.log()}
      useEffect(() =>{
-         fetchData();
         },[])
         
         const API_CAT = ('https://fakestoreapi.com/products/categories')
+        fetchData();
 async function fetchData(){
     let responce = await fetch(API_CAT);
     let categoriesData = await responce.json();
@@ -37,7 +38,8 @@ const handlecategory = async (category) => {
 }
 return( 
     <div>
-<div>
+{/* <Header/> */}
+<div className='fleex'>
 {categories.map((category =>{
     // console.log(category+22)
     return <button className='btncategory' onClick={()=>handlecategory(category)}>{category}</button>

@@ -39,7 +39,7 @@ function Cart() {
     }
   }, [products])
   const handleButtonClick = () => {
-    setSaved(!saved); 
+    alert('your product are saved!')
   };
   const buttonStyle = {
     backgroundColor: saved ? 'red' : 'white',}
@@ -73,23 +73,23 @@ function Cart() {
                   Tittle = {item.title},
                 </div>
                <div className='quan'>
-                Quantity : {item.quantity},
+              {/* .{item.quantity}, */}
           </div>
                <div className='bbtn'>
-              <button className='detailsbtn'><i class="fa-sharp fa-regular fa-heart" style={buttonStyle} onClick={handleButtonClick}></i> {saved ? 'Saved' : 'Save for Later'}</button>
+              <button className='detailsbtn'onClick={handleButtonClick}>🤍Saved!</button>
           </div>
-          <div className='bttn-+'>
-<button onClick={()=>
+          <div className='bttn-'>
+<button className='minus' onClick={()=>
 setItemQuantity(()=>{
-  {
+  { 
     item.quantity--
   }
 })
 }>
-  -
+-
 </button>
 <span>{item.quantity}</span>
-<button onClick={() => setItemQuantity(item.quantity++)}>
+<button className='plus' onClick={() => setItemQuantity(item.quantity++)}>
   +
 </button>
 </div>
@@ -104,6 +104,9 @@ setItemQuantity(()=>{
 <h1 className='totol'>Total</h1>
 <hr/>
 <h2 className='sbtol'>Sub-Total:<h3 className='totl=priss'>${total.toFixed(2)}</h3></h2>
+<h1 className='delivery'>Delivery</h1>
+<br/>
+<h2 className='standardd'>Standard Delivery (Free)</h2>
       </div>
     </div>
 );
